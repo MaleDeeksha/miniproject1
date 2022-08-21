@@ -1,0 +1,28 @@
+{% extends 'users/userbase.html' %}
+
+
+{% block contents %}
+<style>
+    .dataframe {
+        background: gray;
+        margin-left: -150px;
+        margin-top: 1rem;
+    }
+
+    th {
+        text-align: center;
+        padding: 5px;
+        background: gray;
+        color: whitesmoke;
+    }
+
+    td {
+        background: #000;
+        color: whitesmoke;
+        text-align: center;
+    }
+</style>
+<div class="">
+    {{data|safe}}
+</div>
+{%endblock%}

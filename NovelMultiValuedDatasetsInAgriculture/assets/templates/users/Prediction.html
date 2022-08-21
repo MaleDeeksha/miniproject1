@@ -1,0 +1,113 @@
+{% extends 'users/userbase.html' %} {% block contents %}
+{% load static %}
+<style>
+    h3 {
+        margin-top: 10%;
+    }
+
+    table {
+        border: 5%;
+        width: 15%;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+
+    th {
+        background-color: #04AA6D;
+        color: white;
+    }
+</style>
+
+<center>
+    <h3>Add Information to Test</h3>
+    <form action="{% url 'Prediction' %}" method="post" style="width:100%">
+        {% csrf_token %}
+        <table class="sm-table">
+
+            <tr>
+                <th>Fields </th>
+                <th>Input Values </th>
+            </tr>
+
+            <tr>
+                <td>Name </td>
+                <td><input type="text" name="name" required> </td>
+            </tr>
+            <tr>
+                <td>Estimated_Insects_Count</td>
+                <td> <input type="number" name="Estimated_Insects_Count" min="100" max="5000" required> </td>
+            </tr>
+
+            <tr>
+                <td>Crop_Type</td>
+                <td><select name="Crop_Type" required>
+                        <option value="">--Select--</option>
+                        <option value="0">Wheat</option>
+                        <option value="1">Rice</option>
+                        <option value="2">Corn</option>
+                        <option value="3">Sugarcane</option>
+                    </select> </td>
+            </tr>
+            <tr>
+                <td>Soil_Type</td>
+                <td><select name="Soil_Type" required>
+                        <option value="">--Select--</option>
+                        <option value="0">Red Soil</option>
+                        <option value="1">black soil</option>
+                        <option value="2">arid soil</option>
+                        <option value="3">marsh soil</option>
+                        <option value="4">alluvial soil</option>
+                    </select> </td>
+            </tr>
+
+            <tr>
+                <td>Pesticide_Use_Category</td>
+                <td><select name="Pesticide_Use_Category" required>
+                        <option value="">--Select--</option>
+                        <option value="0">1</option>
+                        <option value="1">2</option>
+                        <option value="2">3</option>
+                    </select> </td>
+            </tr>
+
+            <tr>
+                <td>Number_Doses_Week</td>
+                <td><input type="number" name="Number_Doses_Week" min="0" max="100" required> </td>
+            </tr>
+            <tr>
+                <td>Number_Weeks_Used</td>
+                <td> <input type="number" name="Number_Weeks_Used" min="0" max="100" required> </td>
+            </tr>
+            <tr>
+                <td>Number_Weeks_Quit</td>
+                <td> <input type="number" name="Number_Weeks_Quit" min="0" max="53" required> </td>
+            </tr>
+            <td>Season</td>
+            <td><select name="Number_Doses_Week" required>
+                    <option value="">--Select--</option>
+                    <option value="1">Summer</option>
+                    <option value="2">Rainy</option>
+                    <option value="3">Winter</option>
+                </select> </td>
+            </tr>
+            <tr>
+                <td><button type="submit" value="Register" class="sendmail alignright">Predict</button></td>
+            </tr>
+            <h2>
+                <tr>Crop is <font color='GREEN'></font>
+                    {{msg}}{{s}}
+                </tr>
+            </h2>
+        </table>
+    </form>
+</center>
+
+{% endblock %}

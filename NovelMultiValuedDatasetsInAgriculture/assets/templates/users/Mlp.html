@@ -1,0 +1,27 @@
+{%extends "users/userbase.html"%}
+{%load static%}
+{%block contents%}
+
+<style>
+    h1 {
+        margin-top: 10%;
+    }
+</style>
+
+<center>
+    <h1>Multilayer Perceptron</h1>
+    <h2>Accuracy: <font color="RED">{{accuracy}}</font>
+    </h2>
+    <h2>mean_squared_error: <font color="RED">{{mse}}</font>
+    </h2>
+
+    <h2>mean_absolute_error: <font color="RED">{{mae}}</font>
+    </h2>
+    <h2>r2_score: <font color="RED">{{r2}}</font>
+    </h2>
+
+
+</center>
+
+
+{%endblock%}
